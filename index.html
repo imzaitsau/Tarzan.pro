@@ -3,271 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TARZAN | Official Portfolio</title>
+    <title>TARZAN LIFESTYLE</title>
     <style>
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: rgba(23, 32, 54, 0.65);
-            --card-hover: rgba(30, 41, 59, 0.85);
-            --accent-color: #00f2fe;
-            --accent-glow: rgba(0, 242, 254, 0.25);
-            --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-            --text-main: #f8fafc;
-            --text-sub: #94a3b8;
-            --border: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(0, 242, 254, 0.3);
+            --bg-color: #0d0f12;
+            --card-bg: #161920;
+            --text-main: #ffffff;
+            --text-sub: #9ca3af;
+            --accent: #10b981;
+            --accent-hover: #059669;
+            --border: #27272a;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            scroll-behavior: smooth;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(79, 172, 254, 0.05) 0%, transparent 40%);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
         }
 
         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
+            max-width: 600px;
+            width: 100%;
         }
 
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 0;
-            background: rgba(11, 15, 25, 0.7);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 22px;
-            letter-spacing: 2px;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .btn-donate-widget {
-            background: rgba(255, 75, 75, 0.15);
-            color: #ff4b4b;
-            border: 1px solid rgba(255, 75, 75, 0.3);
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 13px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-donate-widget:hover {
-            background: rgba(255, 75, 75, 0.25);
-            transform: translateY(-2px);
-        }
-
-        .lang-switch {
-            display: flex;
-            gap: 4px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 4px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
+            margin-bottom: 30px;
         }
 
         .lang-switch button {
-            background: none;
-            border: none;
+            background: transparent;
+            border: 1px solid var(--border);
             color: var(--text-sub);
             padding: 5px 10px;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 12px;
-            font-weight: 600;
-            transition: all 0.2s ease;
+            margin-left: 4px;
         }
 
         .lang-switch button.active {
-            background: var(--accent-gradient);
-            color: #000;
-            box-shadow: 0 2px 8px var(--accent-glow);
-        }
-
-        .hero {
-            display: flex;
-            flex-direction: column-reverse;
-            align-items: center;
-            gap: 30px;
-            margin: 40px 0 60px 0;
-            text-align: center;
-        }
-
-        @media (min-width: 650px) {
-            .hero {
-                flex-direction: row;
-                text-align: left;
-                justify-content: space-between;
-            }
-        }
-
-        .hero-text h1 {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-        }
-
-        .hero-text p {
-            color: var(--text-sub);
-            font-size: 16px;
-            margin-bottom: 24px;
-            max-width: 500px;
-        }
-
-        .hero-img-wrapper {
-            width: 190px;
-            height: 190px;
-            border-radius: 50%;
-            padding: 4px;
-            background: var(--accent-gradient);
-            box-shadow: 0 10px 30px var(--accent-glow);
-            flex-shrink: 0;
-        }
-
-        .hero-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+            color: var(--accent);
+            border-color: var(--accent);
         }
 
         .btn {
-            background: var(--accent-gradient);
+            background: var(--accent);
             color: #000;
-            text-decoration: none;
+            font-weight: 600;
             padding: 12px 24px;
-            border-radius: 12px;
-            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
             display: inline-block;
             border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: 0.2s;
+            text-align: center;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px var(--accent-glow);
+            background: var(--accent-hover);
         }
 
         .btn-outline {
             background: transparent;
-            border: 1px solid var(--border);
             color: var(--text-main);
+            border: 1px solid var(--border);
         }
 
-        .btn-outline:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
+        .hero {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero-img {
+            width: 100%;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+        }
+
+        .hero-text h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .hero-text p {
+            color: var(--text-sub);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 40px;
         }
 
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 24px;
-            margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            padding: 20px;
+            border-radius: 12px;
         }
 
-        .card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-3px);
+        .card h3 {
+            margin-bottom: 8px;
+            font-size: 16px;
         }
 
-        .section-title {
-            font-size: 24px;
-            margin-bottom: 24px;
-            font-weight: 700;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
+        .card p {
+            color: var(--text-sub);
+            font-size: 14px;
+            line-height: 1.4;
         }
 
         .ai-badge {
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.08), rgba(79, 172, 254, 0.08));
-            border: 1px solid rgba(0, 242, 254, 0.25);
-            border-radius: 20px;
-            padding: 24px;
+            background: linear-gradient(135deg, #1f2937, #111827);
+            border: 1px solid var(--accent);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 40px 0;
-            flex-wrap: wrap;
-            gap: 16px;
+            gap: 10px;
         }
 
+        /* MODAL */
         .modal-backdrop {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(8px);
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
             display: none;
-            z-index: 200;
+            z-index: 100;
         }
+
+        .modal-backdrop.active { display: block; }
 
         .modal {
             position: fixed;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 480px;
-            background: #131b2e;
+            background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 28px;
+            border-radius: 16px;
+            padding: 24px;
+            width: 90%;
+            max-width: 450px;
             display: none;
-            z-index: 201;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            z-index: 101;
         }
 
-        .modal.active, .modal-backdrop.active {
-            display: block;
-        }
+        .modal.active { display: block; }
 
         .modal-header {
             display: flex;
@@ -280,96 +190,75 @@
             background: none;
             border: none;
             color: var(--text-sub);
-            font-size: 28px;
+            font-size: 24px;
             cursor: pointer;
-            line-height: 1;
         }
 
         .tabs {
             display: flex;
-            gap: 12px;
-            border-bottom: 1px solid var(--border);
+            gap: 10px;
             margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
         }
 
         .tab-btn {
             background: none;
             border: none;
             color: var(--text-sub);
-            padding: 10px 0;
             cursor: pointer;
-            font-weight: 600;
-            border-bottom: 2px solid transparent;
-            font-size: 14px;
+            padding: 5px 10px;
         }
 
         .tab-btn.active {
-            color: var(--accent-color);
-            border-bottom-color: var(--accent-color);
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
         }
 
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
 
         .qr-image {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 20px auto;
+            width: 100%;
+            max-width: 200px;
             display: block;
-            border-radius: 12px;
-            border: 1px solid var(--border);
+            margin: 0 auto 15px;
+            border-radius: 8px;
         }
 
         .crypto-address {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 13px;
+            background: var(--bg-color);
+            padding: 10px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid var(--border);
+            word-break: break-all;
         }
 
         .btn-copy {
-            background: var(--accent-gradient);
-            color: #000;
+            background: var(--border);
+            color: #fff;
             border: none;
-            padding: 6px 12px;
-            border-radius: 6px;
+            padding: 5px 10px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 12px;
-            font-weight: 600;
             margin-left: 10px;
-            flex-shrink: 0;
-        }
-
-        .survey-iframe {
-            width: 100%;
-            height: 360px;
-            border: none;
-            border-radius: 12px;
+            white-space: nowrap;
         }
     </style>
 </head>
 <body>
-
-<div class="container">
+    <div class="container">
     <header>
-        <div class="logo">TARZAN</div>
-        <div class="nav-right">
-            <button class="btn-donate-widget" onclick="openModal()">❤️ <span id="nav-support">Поддержать</span></button>
-            <div class="lang-switch">
-                <button onclick="setLang('ru')" class="active">RU</button>
-                <button onclick="setLang('en')">EN</button>
-                <button onclick="setLang('vi')">VI</button>
-                <button onclick="setLang('zh')">ZH</button>
-            </div>
+        <div style="font-weight: 700; font-size: 18px;">TARZAN</div>
+        <div class="lang-switch">
+            <button class="active" onclick="setLang('ru', event)">RU</button>
+            <button onclick="setLang('en', event)">EN</button>
+            <button onclick="setLang('vi', event)">VI</button>
+            <button onclick="setLang('zh', event)">ZH</button>
         </div>
     </header>
 
@@ -426,436 +315,115 @@
         </div>
     </section>
 </div>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TARZAN | Official Portfolio</title>
-    <style>
-        :root {
-            --bg-color: #0b0f19;
-            --card-bg: rgba(23, 32, 54, 0.65);
-            --card-hover: rgba(30, 41, 59, 0.85);
-            --accent-color: #00f2fe;
-            --accent-glow: rgba(0, 242, 254, 0.25);
-            --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-            --text-main: #f8fafc;
-            --text-sub: #94a3b8;
-            --border: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(0, 242, 254, 0.3);
-        }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(79, 172, 254, 0.05) 0%, transparent 40%);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 0;
-            background: rgba(11, 15, 25, 0.7);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 22px;
-            letter-spacing: 2px;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .btn-donate-widget {
-            background: rgba(255, 75, 75, 0.15);
-            color: #ff4b4b;
-            border: 1px solid rgba(255, 75, 75, 0.3);
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 13px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-donate-widget:hover {
-            background: rgba(255, 75, 75, 0.25);
-            transform: translateY(-2px);
-        }
-
-        .lang-switch {
-            display: flex;
-            gap: 4px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 4px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-
-        .lang-switch button {
-            background: none;
-            border: none;
-            color: var(--text-sub);
-            padding: 5px 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .lang-switch button.active {
-            background: var(--accent-gradient);
-            color: #000;
-            box-shadow: 0 2px 8px var(--accent-glow);
-        }
-
-        .hero {
-            display: flex;
-            flex-direction: column-reverse;
-            align-items: center;
-            gap: 30px;
-            margin: 40px 0 60px 0;
-            text-align: center;
-        }
-
-        @media (min-width: 650px) {
-            .hero {
-                flex-direction: row;
-                text-align: left;
-                justify-content: space-between;
-            }
-        }
-
-        .hero-text h1 {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-        }
-
-        .hero-text p {
-            color: var(--text-sub);
-            font-size: 16px;
-            margin-bottom: 24px;
-            max-width: 500px;
-        }
-
-        .hero-img-wrapper {
-            width: 190px;
-            height: 190px;
-            border-radius: 50%;
-            padding: 4px;
-            background: var(--accent-gradient);
-            box-shadow: 0 10px 30px var(--accent-glow);
-            flex-shrink: 0;
-        }
-
-        .hero-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            background: var(--accent-gradient);
-            color: #000;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-weight: 700;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px var(--accent-glow);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-main);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 24px;
-            margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-3px);
-        }
-
-        .section-title {
-            font-size: 24px;
-            margin-bottom: 24px;
-            font-weight: 700;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .ai-badge {
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.08), rgba(79, 172, 254, 0.08));
-            border: 1px solid rgba(0, 242, 254, 0.25);
-            border-radius: 20px;
-            padding: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 40px 0;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .modal-backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(8px);
-            display: none;
-            z-index: 200;
-        }
-
-        .modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 480px;
-            background: #131b2e;
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 28px;
-            display: none;
-            z-index: 201;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-        }
-
-        .modal.active, .modal-backdrop.active {
-            display: block;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            color: var(--text-sub);
-            font-size: 28px;
-            cursor: pointer;
-            line-height: 1;
-        }
-
-        .tabs {
-            display: flex;
-            gap: 12px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 20px;
-        }
-
-        .tab-btn {
-            background: none;
-            border: none;
-            color: var(--text-sub);
-            padding: 10px 0;
-            cursor: pointer;
-            font-weight: 600;
-            border-bottom: 2px solid transparent;
-            font-size: 14px;
-        }
-
-        .tab-btn.active {
-            color: var(--accent-color);
-            border-bottom-color: var(--accent-color);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .qr-image {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 20px auto;
-            display: block;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-
-        .crypto-address {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 13px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid var(--border);
-        }
-
-        .btn-copy {
-            background: var(--accent-gradient);
-            color: #000;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: 600;
-            margin-left: 10px;
-            flex-shrink: 0;
-        }
-
-        .survey-iframe {
-            width: 100%;
-            height: 360px;
-            border: none;
-            border-radius: 12px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <header>
-        <div class="logo">TARZAN</div>
-        <div class="nav-right">
-            <button class="btn-donate-widget" onclick="openModal()">❤️ <span id="nav-support">Поддержать</span></button>
-            <div class="lang-switch">
-                <button onclick="setLang('ru')" class="active">RU</button>
-                <button onclick="setLang('en')">EN</button>
-                <button onclick="setLang('vi')">VI</button>
-                <button onclick="setLang('zh')">ZH</button>
-            </div>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="hero-text">
-            <h1>TARZAN LIFESTYLE</h1>
-            <p id="hero-desc">Модель • Инфлюенсер • Фитнес-Тренер • Гид по ЮВА • Дейтинг-Консультант</p>
-            <div class="btn-group">
-                <a href="#title-contact" class="btn" id="btn-contact">Заказать услугу</a>
-                <button class="btn btn-outline" onclick="openModal()" id="btn-donate-hero">❤️ Поддержать</button>
-            </div>
-        </div>
-        <div class="hero-img-wrapper">
-            <img src="13050.jpg" alt="Tarzan Portrait" class="hero-img">
-        </div>
-    </section>
-
-    <section>
-        <h2 class="section-title" id="title-services">Услуги</h2>
-        <div class="grid">
-            <div class="card">
-                <h3 id="s1-title">Моделинг и Съемки</h3>
-                <p id="s1-desc">Участие в модных показах, рекламных кампаниях, съемках брендов одежды и контента по всей ЮВА.</p>
-            </div>
-            <div class="card">
-                <h3 id="s2-title">Фитнес & Персональный Тренинг</h3>
-                <p id="s2-desc">Индивидуальные программы тренировок, коррекция формы, онлайн-ведение и мотивация.</p>
-            </div>
-            <div class="card">
-                <h3 id="s3-title">Авторский Гид по ЮВА</h3>
-                <p id="s3-desc">Эксклюзивные нетуристические маршруты, сопровождение и локальные секреты лучших мест региона.</p>
-            </div>
-            <div class="card">
-                <h3 id="s4-title">Дейтинг-Консультант</h3>
-                <p id="s4-desc">Оптимизация профиля, подбор стиля и помощь в поиске пары.</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="ai-badge">
-        <div>
-            <h4 id="ai-title">Хочешь такой же сайт с ИИ?</h4>
-            <p id="ai-sub" style="color: var(--text-sub); font-size: 14px;">Сделаем современный сайт под твои задачи за пару минут!</p>
-        </div>
-        <a href="https://t.me/imzaitsau" target="_blank" class="btn" id="ai-btn">Создать сейчас &rarr;</a>
+<!-- DONATION MODAL -->
+<div class="modal-backdrop" id="modalBackdrop" onclick="closeModal()"></div>
+<div class="modal" id="donationModal">
+    <div class="modal-header">
+        <h3 id="m-title">Поддержать проект</h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
     </div>
 
-    <section class="card" style="text-align: center; margin-bottom: 40px;">
-        <h2 id="title-contact">Связь и Соцсети</h2>
-        <p id="contact-text" style="color: var(--text-sub); margin-bottom: 20px;">Напишите мне напрямую для сотрудничества:</p>
-        <div class="btn-group" style="justify-content: center;">
-            <a href="https://t.me/imzaitsau" class="btn" target="_blank">Telegram</a>
-            <a href="https://instagram.com/imzaitsau" class="btn btn-outline" target="_blank">Instagram</a>
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('crypto')">Криптовалюта</button>
+        <button class="tab-btn" onclick="switchTab('bank')">Карта / Банк</button>
+    </div>
+
+    <div class="tab-content active" id="tab-crypto">
+        <img src="1.qr.trust.usdt.trc20.jpg" alt="USDT TRC20 QR" class="qr-image">
+        <div style="margin-bottom: 15px;">
+            <label style="font-size: 12px; color: var(--text-sub); display: block; margin-bottom: 5px;">Сеть: USDT (TRC-20)</label>
+            <div class="crypto-address">
+                <span id="trc20-addr">TP9Y23A4y1724f...</span>
+                <button class="btn-copy" onclick="copyText('trc20-addr')">Копировать</button>
+            </div>
         </div>
-    </section>
+    </div>
+
+    <div class="tab-content" id="tab-bank">
+        <p style="color: var(--text-sub); font-size: 14px; margin-bottom: 15px;">
+            Для переводов по банковской карте или реквизитам напишите мне лично:
+        </p>
+        <a href="https://t.me/imzaitsau" class="btn" target="_blank" style="width: 100%; text-align: center;">
+            Связаться в Telegram
+        </a>
+    </div>
 </div>
+<script>
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        if(tabName === 'crypto') {
+            document.querySelectorAll('.tab-btn')[0].classList.add('active');
+            document.getElementById('tab-crypto').classList.add('active');
+        } else if(tabName === 'bank') {
+            document.querySelectorAll('.tab-btn')[1].classList.add('active');
+            document.getElementById('tab-bank').classList.add('active');
+        }
+    }
+
+    function openModal() {
+        document.getElementById('modalBackdrop').classList.add('active');
+        document.getElementById('donationModal').classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('modalBackdrop').classList.remove('active');
+        document.getElementById('donationModal').classList.remove('active');
+    }
+
+    function copyText(elementId) {
+        const text = document.getElementById(elementId).innerText;
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Адрес скопирован!');
+            }).catch(() => {
+                fallbackCopy(text);
+            });
+        } else {
+            fallbackCopy(text);
+        }
+    }
+
+    function fallbackCopy(text) {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            alert('Адрес скопирован!');
+        } catch (err) {
+            alert('Не удалось скопировать адрес');
+        }
+        document.body.removeChild(textArea);
+    }
+
+    const translations = {
+        ru: {
+            heroDesc: "Модель • Инфлюенсер • Фитнес-Тренер • Гид по ЮВА • Дейтинг-Консультант",
+            btnContact: "Заказать услугу",
+            btnDonateHero: "❤️ Поддержать",
+            titleServices: "Услуги",
+            s1Title: "Моделинг и Съемки",
+            s1Desc: "Участие в модных показах, рекламных кампаниях, съемках брендов одежды и контента по всей ЮВА.",
+            s2Title: "Фитнес & Персональный Тренинг",
+            s2Desc: "Индивидуальные программы тренировок, коррекция формы, онлайн-ведение и мотивация.",
+            s3Title: "Авторский Гид по ЮВА",
+            s3Desc: "Эксклюзивные нетуристические маршруты, сопровождение и локальные секреты лучших мест региона.",
+            s4Title: "Дейтинг-Консультант",
+            s4Desc: "Оптимизация профиля, подбор стиля и помощь в поиске пары.",
+            titleContact: "Связь и Соцсети",
+            contactText: "Напишите мне напрямую для сотрудничества:",
+            mTitle: "Поддержать проект",
+            aiTitle: "Хочешь такой же сайт с ИИ?",
+            aiSub: "Сделаем современный сайт под твои задачи за пару минут!",
+            aiBtn: "Создать сейчас →"
+        },
         en: {
-            navSupport: "Support",
             heroDesc: "Model • Influencer • Fitness Trainer • SEA Guide • Dating Consultant",
             btnContact: "Book Service",
             btnDonateHero: "❤️ Support",
@@ -876,7 +444,6 @@
             aiBtn: "Create Now →"
         },
         vi: {
-            navSupport: "Ủng hộ",
             heroDesc: "Người mẫu • Influencer • HLV Thể hình • Hướng dẫn viên • Tư vấn Dating",
             btnContact: "Đặt dịch vụ",
             btnDonateHero: "❤️ Ủng hộ",
@@ -897,7 +464,6 @@
             aiBtn: "Tạo ngay →"
         },
         zh: {
-            navSupport: "支持",
             heroDesc: "模特 • 网红 • 健身教练 • 东南亚向导 • 约会顾问",
             btnContact: "预约服务",
             btnDonateHero: "❤️ 赞助支持",
@@ -919,12 +485,11 @@
         }
     };
 
-    function setLang(lang) {
+    function setLang(lang, e) {
         const t = translations[lang];
         if(!t) return;
         document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
-        event.target.classList.add('active');
-        document.getElementById('nav-support').innerText = t.navSupport;
+        if(e && e.target) e.target.classList.add('active');
         document.getElementById('hero-desc').innerText = t.heroDesc;
         document.getElementById('btn-contact').innerText = t.btnContact;
         document.getElementById('btn-donate-hero').innerText = t.btnDonateHero;
