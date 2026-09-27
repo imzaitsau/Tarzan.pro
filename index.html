@@ -699,4 +699,242 @@
                 </div>
                 <div class="card">
                     <h3 id="s3-title">Авторский Гид по ЮВА</h3>
-                    <p id="s3-desc">Эксклюзивные нетуристические маршруты, сопровождение и показ
+                    <p id="s3-desc">Эксклюзивные нетуристические маршруты, сопровождение и локальные секреты лучших мест региона.</p>
+            </div>
+            <div class="card">
+                <h3 id="s4-title">Дейтинг-Консультант</h3>
+                <p id="s4-desc">Оптимизация профиля, подбор стиля и помощь в поиске пары.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI ADVERTISEMENT BADGE -->
+    <div class="ai-badge fade-in">
+        <div class="ai-info">
+            <h4 id="ai-title">Хочешь такой же сайт с ИИ?</h4>
+            <p id="ai-sub">Сделаем современный сайт под твои задачи за пару минут!</p>
+        </div>
+        <a href="https://t.me/imzaitsau" target="_blank" class="btn-ai" id="ai-btn">Создать сейчас &rarr;</a>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section class="card fade-in" style="text-align: center; margin-bottom: 40px;">
+        <h2 id="title-contact">Связь и Соцсети</h2>
+        <p id="contact-text" style="color: var(--text-sub); margin-bottom: 20px;">Напишите мне напрямую для сотрудничества:</p>
+        <div class="btn-group" style="justify-content: center;">
+            <a href="https://t.me/imzaitsau" class="btn" target="_blank">Telegram</a>
+            <a href="https://instagram.com/imzaitsau" class="btn btn-outline" target="_blank">Instagram</a>
+        </div>
+    </section>
+</div>
+
+<!-- DONATION MODAL -->
+<div class="modal-backdrop" id="modalBackdrop" onclick="closeModal()"></div>
+<div class="modal" id="donationModal">
+    <div class="modal-header">
+        <h3 id="m-title">Поддержать проект</h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('crypto')">Криптовалюта</button>
+        <button class="tab-btn" onclick="switchTab('bank')">Карта / Банк</button>
+        <button class="tab-btn" onclick="switchTab('survey')">Опрос</button>
+    </div>
+
+    <!-- TAB 1: CRYPTO -->
+    <div class="tab-content active" id="tab-crypto">
+        <img src="1.qr.trust.usdt.trc20.jpg" alt="USDT TRC20 QR" class="qr-image">
+        
+        <div style="text-align: left; margin-bottom: 15px;">
+            <label style="font-size: 12px; color: var(--text-sub); display: block; margin-bottom: 5px;">Сеть: USDT (TRC-20)</label>
+            <div class="crypto-address">
+                <span id="trc20-addr">TP9Y23A4y1724f...</span>
+                <button class="btn-copy" onclick="copyText('trc20-addr')">Копировать</button>
+            </div>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <label style="font-size: 12px; color: var(--text-sub); display: block; margin-bottom: 5px;">Сеть: TON</label>
+            <div class="crypto-address">
+                <span id="ton-addr">EQBvW8354...</span>
+                <button class="btn-copy" onclick="copyText('ton-addr')">Копировать</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 2: BANK -->
+    <div class="tab-content" id="tab-bank">
+        <p style="color: var(--text-sub); font-size: 14px; margin-bottom: 15px;">
+            Для переводов по банковской карте или реквизитам напишите мне лично:
+        </p>
+        <a href="https://t.me/imzaitsau" class="btn" target="_blank" style="width: 100%; box-sizing: border-box;">
+            Связаться в Telegram
+        </a>
+    </div>
+
+    <!-- TAB 3: SURVEY -->
+    <div class="tab-content" id="tab-survey">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScP_SURVEY_ID/viewform?embedded=true" class="survey-iframe" frameborder="0" marginheight="0" marginwidth="0">Загрузка...</iframe>
+    </div>
+</div>
+
+<script>
+    // Tab Switcher
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        
+        if(tabName === 'crypto') {
+            document.querySelectorAll('.tab-btn')[0].classList.add('active');
+            document.getElementById('tab-crypto').classList.add('active');
+        } else if(tabName === 'bank') {
+            document.querySelectorAll('.tab-btn')[1].classList.add('active');
+            document.getElementById('tab-bank').classList.add('active');
+        } else if(tabName === 'survey') {
+            document.querySelectorAll('.tab-btn')[2].classList.add('active');
+            document.getElementById('tab-survey').classList.add('active');
+        }
+    }
+
+    // Modal Control
+    function openModal() {
+        document.getElementById('modalBackdrop').classList.add('active');
+        document.getElementById('donationModal').classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('modalBackdrop').classList.remove('active');
+        document.getElementById('donationModal').classList.remove('active');
+    }
+
+    // Copy to Clipboard
+    function copyText(elementId) {
+        const text = document.getElementById(elementId).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Адрес скопирован в буфер обмена!');
+        });
+    }
+
+    // Translations Dictionary
+    const translations = {
+        ru: {
+            navSupport: "Поддержать",
+            heroDesc: "Модель • Инфлюенсер • Фитнес-Тренер • Гид по ЮВА • Дейтинг-Консультант",
+            btnContact: "Заказать услугу",
+            btnDonateHero: "❤️ Поддержать",
+            titleServices: "Услуги",
+            s1Title: "Моделинг и Съемки",
+            s1Desc: "Участие в модных показах, рекламных кампаниях, съемках брендов одежды и контента по всей ЮВА (Вьетнам, Бангкок, Бали).",
+            s2Title: "Фитнес & Персональный Тренинг",
+            s2Desc: "Индивидуальные программы тренировок, коррекция формы, онлайн-ведение и мотивация для достижения ваших целей.",
+            s3Title: "Авторский Гид по ЮВА",
+            s3Desc: "Эксклюзивные нетуристические маршруты, сопровождение и локальные секреты лучших мест региона.",
+            s4Title: "Дейтинг-Консультант",
+            s4Desc: "Оптимизация профиля, подбор стиля и помощь в поиске пары.",
+            titleContact: "Связь и Соцсети",
+            contactText: "Напишите мне напрямую для сотрудничества:",
+            mTitle: "Поддержать проект",
+            aiTitle: "Хочешь такой же сайт с ИИ?",
+            aiSub: "Сделаем современный сайт под твои задачи за пару минут!",
+            aiBtn: "Создать сейчас →"
+        },
+        en: {
+            navSupport: "Support",
+            heroDesc: "Model • Influencer • Fitness Trainer • SEA Guide • Dating Consultant",
+            btnContact: "Book Service",
+            btnDonateHero: "❤️ Support",
+            titleServices: "Services",
+            s1Title: "Modeling & Shoots",
+            s1Desc: "Fashion shows, brand campaigns, and content creation across SEA (Vietnam, Bangkok, Bali).",
+            s2Title: "Fitness & Personal Training",
+            s2Desc: "Custom workout plans, body sculpting, and online coaching to reach your goals.",
+            s3Title: "SEA Travel Guide",
+            s3Desc: "Exclusive non-touristy routes, local guidance, and hidden gems of Southeast Asia.",
+            s4Title: "Dating Consultant",
+            s4Desc: "Profile optimization, style tips, and confidence coaching for dating.",
+            titleContact: "Contact & Socials",
+            contactText: "Get in touch directly for collaborations:",
+            mTitle: "Support the Project",
+            aiTitle: "Want an AI site like this?",
+            aiSub: "We build modern websites for your needs in minutes!",
+            aiBtn: "Create Now →"
+        },
+        vi: {
+            navSupport: "Ủng hộ",
+            heroDesc: "Người mẫu • Influencer • HLV Thể hình • Hướng dẫn viên • Tư vấn Dating",
+            btnContact: "Đặt dịch vụ",
+            btnDonateHero: "❤️ Ủng hộ",
+            titleServices: "Dịch vụ",
+            s1Title: "Người mẫu & Quay chụp",
+            s1Desc: "Tham gia trình diễn thời trang, quảng cáo thương hiệu khắp Đông Nam Á.",
+            s2Title: "HLV Thể hình Cá nhân",
+            s2Desc: "Chương trình tập luyện riêng, độ vóc dáng, đồng hành online.",
+            s3Title: "Hướng dẫn viên Du lịch SEA",
+            s3Desc: "Lịch trình độc quyền, khám phá những địa điểm bí mật tuyệt đẹp.",
+            s4Title: "Tư vấn Hẹn hò",
+            s4Desc: "Tối ưu hồ sơ hẹn hò, định hình phong cách.",
+            titleContact: "Liên hệ & Mạng xã hội",
+            contactText: "Liên hệ trực tiếp để hợp tác:",
+            mTitle: "Ủng hộ dự án",
+            aiTitle: "Muốn có trang web như thế này?",
+            aiSub: "Tạo trong 2 phút với AI!",
+            aiBtn: "Tạo ngay →"
+        },
+        zh: {
+            navSupport: "支持",
+            heroDesc: "模特 • 网红 • 健身教练 • 东南亚向导 • 约会顾问",
+            btnContact: "预约服务",
+            btnDonateHero: "❤️ 赞助支持",
+            titleServices: "服务项目",
+            s1Title: "模特与拍摄",
+            s1Desc: "时装秀、品牌广告、服装拍摄（越南、曼谷、巴厘岛）。",
+            s2Title: "健身与私人训练",
+            s2Desc: "定制健身计划、体型塑造、线上指导。",
+            s3Title: "东南亚定制导游",
+            s3Desc: "独家小众路线、小众景点深度游。",
+            s4Title: "约会形象顾问",
+            s4Desc: "个人形象优化、约会技巧指导。",
+            titleContact: "联系方式与社交媒体",
+            contactText: "直接联系洽谈合作：",
+            mTitle: "支持本项目",
+            aiTitle: "想要类似的AI网站？",
+            aiSub: "几分钟内为您打造专属网站！",
+            aiBtn: "立即创建 →"
+        }
+    };
+
+    // Language Switcher
+    function setLang(lang) {
+        const t = translations[lang];
+        if(!t) return;
+
+        // Active button UI
+        document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+
+        // Translate text elements
+        document.getElementById('nav-support').innerText = t.navSupport;
+        document.getElementById('hero-desc').innerText = t.heroDesc;
+        document.getElementById('btn-contact').innerText = t.btnContact;
+        document.getElementById('btn-donate-hero').innerText = t.btnDonateHero;
+        document.getElementById('title-services').innerText = t.titleServices;
+        document.getElementById('s1-title').innerText = t.s1Title;
+        document.getElementById('s1-desc').innerText = t.s1Desc;
+        document.getElementById('s2-title').innerText = t.s2Title;
+        document.getElementById('s2-desc').innerText = t.s2Desc;
+        document.getElementById('s3-title').innerText = t.s3Title;
+        document.getElementById('s3-desc').innerText = t.s3Desc;
+        document.getElementById('s4-title').innerText = t.s4Title;
+        document.getElementById('s4-desc').innerText = t.s4Desc;
+        document.getElementById('title-contact').innerText = t.titleContact;
+        document.getElementById('contact-text').innerText = t.contactText;
+        document.getElementById('m-title').innerText = t.mTitle;
+        document.getElementById('ai-title').innerText = t.aiTitle;
+        document.getElementById('ai-sub').innerText = t.aiSub;
+        document.getElementById('ai-btn').innerText = t.aiBtn;
+    }
+</script>
+</body>
+</html>
