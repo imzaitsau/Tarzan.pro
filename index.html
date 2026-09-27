@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TARZAN LIFESTYLE</title>
+    <title>TARZAN MEDIA</title>
     <style>
         :root {
             --bg-color: #090a0f;
@@ -140,14 +140,15 @@
 
         .hero-img {
             width: 100%;
+            height: 380px;
             border-radius: 18px;
             object-fit: cover;
-            max-height: 380px;
+            object-position: center 20%;
             border: 1px solid var(--card-border);
         }
 
         .hero-text h1 {
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 800;
             margin-bottom: 10px;
             letter-spacing: -0.5px;
@@ -169,6 +170,42 @@
         .btn-group .btn {
             flex: 1;
             min-width: 140px;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .social-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--card-border);
+            padding: 12px 14px;
+            border-radius: 12px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .social-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
         .section-title {
@@ -229,18 +266,6 @@
 
         @media (max-width: 480px) {
             .donate-grid { grid-template-columns: 1fr; }
-        }
-
-        .ai-badge {
-            background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.9));
-            border: 1px solid var(--accent);
-            padding: 22px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
         }
 
         /* MODAL */
@@ -352,9 +377,10 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    
+<div class="container">
     <header>
-        <div class="logo">TARZAN</div>
+        <div class="logo">TARZAN MEDIA</div>
         <div class="lang-switch">
             <button class="active" onclick="setLang('ru', event)">RU</button>
             <button onclick="setLang('en', event)">EN</button>
@@ -366,68 +392,79 @@
     <section class="hero">
         <img src="13050.jpg" alt="Tarzan Portrait" class="hero-img">
         <div class="hero-text">
-            <h1>TARZAN LIFESTYLE</h1>
+            <h1>TARZAN MEDIA</h1>
             <p id="hero-desc">Модель • Инфлюенсер • Фитнес-Тренер • Гид по ЮВА • Дейтинг-Консультант</p>
             <div class="btn-group">
                 <a href="#title-contact" class="btn" id="btn-contact">Заказать услугу</a>
-                <button class="btn btn-gold" onclick="openModal()" id="btn-donate-hero">❤️ Поддержать</button>
+                <button class="btn btn-gold" onclick="openModal()" id="btn-donate-hero">Поддержать</button>
             </div>
-        </div>
-    </section>
-
-    <!-- DONATION & SUPPORT SECTION -->
-    <section class="donate-section">
-        <h2 class="section-title" id="title-donate">❤️ Поддержка и Донаты</h2>
-        <p style="color: var(--text-sub); font-size: 14px; margin-bottom: 15px;" id="donate-desc">
-            Если вам нравится мой контент и гайды по ЮВА, вы можете поддержать проект удобным способом:
-        </p>
-        <div class="donate-grid">
-            <!-- DaLink / DonationAlerts Direct Link -->
-            <a href="https://dalink.to/tarzan" target="_blank" class="btn btn-gold" style="width: 100%;">
-                ⚡ DaLink / Карты
-            </a>
-            <button class="btn btn-outline" onclick="openModal()" style="width: 100%;">
-                💎 Криптовалюта / USDT
-            </button>
         </div>
     </section>
 
     <section>
-        <h2 class="section-title" id="title-services">✨ Услуги</h2>
+        <h2 class="section-title" id="title-services">Услуги</h2>
         <div class="grid">
             <div class="card">
-                <h3 id="s1-title">📸 Моделинг и Съемки</h3>
+                <h3 id="s1-title">Моделинг и Съемки</h3>
                 <p id="s1-desc">Участие в модных показах, рекламных кампаниях, съемках брендов одежды и контента по всей ЮВА.</p>
             </div>
             <div class="card">
-                <h3 id="s2-title">💪 Фитнес & Персональный Тренинг</h3>
+                <h3 id="s2-title">Фитнес & Персональный Тренинг</h3>
                 <p id="s2-desc">Индивидуальные программы тренировок, коррекция формы, онлайн-ведение и мотивация.</p>
             </div>
             <div class="card">
-                <h3 id="s3-title">🗺️ Авторский Гид по ЮВА</h3>
+                <h3 id="s3-title">Авторский Гид по ЮВА</h3>
                 <p id="s3-desc">Эксклюзивные нетуристические маршруты, сопровождение и локальные секреты лучших мест региона.</p>
             </div>
             <div class="card">
-                <h3 id="s4-title">🔥 Дейтинг-Консультант</h3>
+                <h3 id="s4-title">Дейтинг-Консультант</h3>
                 <p id="s4-desc">Оптимизация профиля, подбор стиля и помощь в поиске пары.</p>
             </div>
         </div>
     </section>
 
-    <div class="ai-badge">
-        <div>
-            <h4 id="ai-title">Хочешь такой же сайт с ИИ?</h4>
-            <p id="ai-sub" style="color: var(--text-sub); font-size: 14px;">Сделаем современный сайт под твои задачи за пару минут!</p>
+    <!-- SOCIAL MEDIA & CONTACTS SECTION -->
+    <section class="card" style="margin-bottom: 30px;">
+        <h2 id="title-contact" style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Соцсети и Связь</h2>
+        <p id="contact-text" style="color: var(--text-sub); font-size: 14px; margin-bottom: 20px;">Подписывайтесь и пишите напрямую по всем вопросам:</p>
+        
+        <div class="social-grid">
+            <a href="https://t.me/imzaitsau" target="_blank" class="social-btn">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                Telegram
+            </a>
+            <a href="https://instagram.com/imzaitsau" target="_blank" class="social-btn">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                Instagram
+            </a>
+            <a href="https://youtube.com/@imzaitsau" target="_blank" class="social-btn">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                YouTube
+            </a>
+            <a href="https://tiktok.com/@imzaitsau" target="_blank" class="social-btn">
+                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.29 1.54-1.22 2.52.03.88.52 1.7 1.27 2.14.77.46 1.75.52 2.58.18.82-.32 1.48-1.02 1.72-1.87.12-.51.13-1.04.12-1.57V0z"/></svg>
+                TikTok
+            </a>
+            <a href="https://twitch.tv/imzaitsau" target="_blank" class="social-btn">
+                <svg viewBox="0 0 24 24"><path d="M11.571 4.714h1.715v5.143h-1.715zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
+                Twitch
+            </a>
         </div>
-        <a href="https://t.me/imzaitsau" target="_blank" class="btn" id="ai-btn">Создать сейчас &rarr;</a>
-    </div>
+    </section>
 
-    <section class="card" style="text-align: center; margin-bottom: 40px;">
-        <h2 id="title-contact" style="margin-bottom: 10px;">📩 Связь и Соцсети</h2>
-        <p id="contact-text" style="color: var(--text-sub); margin-bottom: 20px;">Напишите мне напрямую для сотрудничества:</p>
-        <div class="btn-group" style="justify-content: center;">
-            <a href="https://t.me/imzaitsau" class="btn" target="_blank">Telegram</a>
-            <a href="https://instagram.com/imzaitsau" class="btn btn-outline" target="_blank">Instagram</a>
+    <!-- DONATION & SUPPORT SECTION (В САМОМ НИЗУ) -->
+    <section class="donate-section">
+        <h2 class="section-title" id="title-donate">Поддержка и Донаты</h2>
+        <p style="color: var(--text-sub); font-size: 14px; margin-bottom: 15px;" id="donate-desc">
+            Если вам нравится мой контент и гайды по ЮВА, вы можете поддержать проект удобным способом:
+        </p>
+        <div class="donate-grid">
+            <a href="https://dalink.to/tarzan" target="_blank" class="btn btn-gold" style="width: 100%;">
+                DaLink / Карты
+            </a>
+            <button class="btn btn-outline" onclick="openModal()" style="width: 100%;">
+                Криптовалюта / USDT
+            </button>
         </div>
     </section>
 </div>
@@ -525,90 +562,78 @@
         ru: {
             heroDesc: "Модель • Инфлюенсер • Фитнес-Тренер • Гид по ЮВА • Дейтинг-Консультант",
             btnContact: "Заказать услугу",
-            btnDonateHero: "❤️ Поддержать",
-            titleDonate: "❤️ Поддержка и Донаты",
+            btnDonateHero: "Поддержать",
+            titleDonate: "Поддержка и Донаты",
             donateDesc: "Если вам нравится мой контент и гайды по ЮВА, вы можете поддержать проект удобным способом:",
-            titleServices: "✨ Услуги",
-            s1Title: "📸 Моделинг и Съемки",
+            titleServices: "Услуги",
+            s1Title: "Моделинг и Съемки",
             s1Desc: "Участие в модных показах, рекламных кампаниях, съемках брендов одежды и контента по всей ЮВА.",
-            s2Title: "💪 Фитнес & Персональный Тренинг",
+            s2Title: "Фитнес & Персональный Тренинг",
             s2Desc: "Индивидуальные программы тренировок, коррекция формы, онлайн-ведение и мотивация.",
-            s3Title: "🗺️ Авторский Гид по ЮВА",
+            s3Title: "Авторский Гид по ЮВА",
             s3Desc: "Эксклюзивные нетуристические маршруты, сопровождение и локальные секреты лучших мест региона.",
-            s4Title: "🔥 Дейтинг-Консультант",
+            s4Title: "Дейтинг-Консультант",
             s4Desc: "Оптимизация профиля, подбор стиля и помощь в поиске пары.",
-            titleContact: "📩 Связь и Соцсети",
-            contactText: "Напишите мне напрямую для сотрудничества:",
-            mTitle: "Поддержать проект",
-            aiTitle: "Хочешь такой же сайт с ИИ?",
-            aiSub: "Сделаем современный сайт под твои задачи за пару минут!",
-            aiBtn: "Создать сейчас →"
+            titleContact: "Соцсети и Связь",
+            contactText: "Подписывайтесь и пишите напрямую по всем вопросам:",
+            mTitle: "Поддержать проект"
         },
         en: {
             heroDesc: "Model • Influencer • Fitness Trainer • SEA Guide • Dating Consultant",
             btnContact: "Book Service",
-            btnDonateHero: "❤️ Support",
-            titleDonate: "❤️ Donations & Support",
+            btnDonateHero: "Support",
+            titleDonate: "Donations & Support",
             donateDesc: "If you enjoy my content and guides, you can support the project here:",
-            titleServices: "✨ Services",
-            s1Title: "📸 Modeling & Shoots",
+            titleServices: "Services",
+            s1Title: "Modeling & Shoots",
             s1Desc: "Fashion shows, brand campaigns, and content creation across SEA.",
-            s2Title: "💪 Fitness & Personal Training",
+            s2Title: "Fitness & Personal Training",
             s2Desc: "Custom workout plans, body sculpting, and online coaching.",
-            s3Title: "🗺️ SEA Travel Guide",
+            s3Title: "SEA Travel Guide",
             s3Desc: "Exclusive non-touristy routes, local guidance, and hidden gems of Southeast Asia.",
-            s4Title: "🔥 Dating Consultant",
+            s4Title: "Dating Consultant",
             s4Desc: "Profile optimization, style tips, and confidence coaching for dating.",
-            titleContact: "📩 Contact & Socials",
-            contactText: "Get in touch directly for collaborations:",
-            mTitle: "Support the Project",
-            aiTitle: "Want an AI site like this?",
-            aiSub: "We build modern websites for your needs in minutes!",
-            aiBtn: "Create Now →"
+            titleContact: "Socials & Contact",
+            contactText: "Follow me or get in touch directly:",
+            mTitle: "Support the Project"
         },
         vi: {
             heroDesc: "Người mẫu • Influencer • HLV Thể hình • Hướng dẫn viên • Tư vấn Dating",
             btnContact: "Đặt dịch vụ",
-            btnDonateHero: "❤️ Ủng hộ",
-            titleDonate: "❤️ Ủng hộ dự án",
+            btnDonateHero: "Ủng hộ",
+            titleDonate: "Ủng hộ dự án",
             donateDesc: "Nếu bạn yêu thích nội dung của tôi, bạn có thể ủng hộ tại đây:",
-            titleServices: "✨ Dịch vụ",
-            s1Title: "📸 Người mẫu & Quay chụp",
+            titleServices: "Dịch vụ",
+            s1Title: "Người mẫu & Quay chụp",
             s1Desc: "Tham gia trình diễn thời trang, quảng cáo thương hiệu khắp Đông Nam Á.",
-            s2Title: "💪 HLV Thể hình Cá nhân",
+            s2Title: "HLV Thể hình Cá nhân",
             s2Desc: "Chương trình tập luyện riêng, độ vóc dáng, đồng hành online.",
-            s3Title: "🗺️ Hướng dẫn viên Du lịch SEA",
+            s3Title: "Hướng dẫn viên Du lịch SEA",
             s3Desc: "Lịch trình độc quyền, khám phá những địa điểm bí mật tuyệt đẹp.",
-            s4Title: "🔥 Tư vấn Hẹn hò",
+            s4Title: "Tư vấn Hẹn hò",
             s4Desc: "Tối ưu hồ sơ hẹn hò, định hình phong cách.",
-            titleContact: "📩 Liên hệ & Mạng xã hội",
-            contactText: "Liên hệ trực tiếp để hợp tác:",
-            mTitle: "Ủng hộ dự án",
-            aiTitle: "Muốn có trang web như thế này?",
-            aiSub: "Tạo trong 2 phút với AI!",
-            aiBtn: "Tạo ngay →"
+            titleContact: "Mạng xã hội & Liên hệ",
+            contactText: "Theo dõi hoặc liên hệ trực tiếp với tôi:",
+            mTitle: "Ủng hộ dự án"
         },
         zh: {
             heroDesc: "模特 • 网红 • 健身教练 • 东南亚向导 • 约会顾问",
             btnContact: "预约服务",
-            btnDonateHero: "❤️ 赞助支持",
-            titleDonate: "❤️ 赞助与支持",
+            btnDonateHero: "赞助支持",
+            titleDonate: "赞助与支持",
             donateDesc: "如果您喜欢我的内容，可以通过以下方式支持我：",
-            titleServices: "✨ 服务项目",
-            s1Title: "📸 模特与拍摄",
+            titleServices: "服务项目",
+            s1Title: "模特与拍摄",
             s1Desc: "时装秀、品牌广告、服装拍摄（越南、曼谷、巴厘岛）。",
-            s2Title: "💪 健身与私人训练",
+            s2Title: "健身与私人训练",
             s2Desc: "定制健身计划、体型塑造、线上指导。",
-            s3Title: "🗺️ 东南亚定制导游",
+            s3Title: "东南亚定制导游",
             s3Desc: "独家小众路线、小众景点深度游。",
-            s4Title: "🔥 约会形象顾问",
+            s4Title: "约会形象顾问",
             s4Desc: "个人形象优化、约会技巧指导。",
-            titleContact: "📩 联系方式与社交媒体",
-            contactText: "直接联系洽谈合作：",
-            mTitle: "支持本项目",
-            aiTitle: "想要类似的AI网站？",
-            aiSub: "几分钟内为您打造专属网站！",
-            aiBtn: "立即创建 →"
+            titleContact: "社交媒体与联系方式",
+            contactText: "关注我或直接联系洽谈合作：",
+            mTitle: "支持本项目"
         }
     };
 
@@ -634,9 +659,6 @@
         document.getElementById('title-contact').innerText = t.titleContact;
         document.getElementById('contact-text').innerText = t.contactText;
         document.getElementById('m-title').innerText = t.mTitle;
-        document.getElementById('ai-title').innerText = t.aiTitle;
-        document.getElementById('ai-sub').innerText = t.aiSub;
-        document.getElementById('ai-btn').innerText = t.aiBtn;
     }
 </script>
 </body>
