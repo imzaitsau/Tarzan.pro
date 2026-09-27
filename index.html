@@ -6,13 +6,15 @@
     <title>TARZAN LIFESTYLE</title>
     <style>
         :root {
-            --bg-color: #0d0f12;
-            --card-bg: #161920;
-            --text-main: #ffffff;
+            --bg-color: #090a0f;
+            --card-bg: rgba(22, 27, 38, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f3f4f6;
             --text-sub: #9ca3af;
             --accent: #10b981;
-            --accent-hover: #059669;
-            --border: #27272a;
+            --accent-glow: rgba(16, 185, 129, 0.25);
+            --accent-gradient: linear-gradient(135deg, #10b981, #059669);
+            --gold: #f59e0b;
         }
 
         * {
@@ -24,14 +26,18 @@
 
         body {
             background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 40%);
             color: var(--text-main);
-            padding: 20px;
+            padding: 20px 15px;
             display: flex;
             justify-content: center;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 640px;
             width: 100%;
         }
 
@@ -40,123 +46,209 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 30px;
+            padding: 12px 18px;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #fff, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .lang-switch button {
-            background: transparent;
-            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
             color: var(--text-sub);
-            padding: 5px 10px;
-            border-radius: 6px;
+            padding: 6px 12px;
+            border-radius: 8px;
             cursor: pointer;
             margin-left: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
         }
 
-        .lang-switch button.active {
-            color: var(--accent);
+        .lang-switch button.active, .lang-switch button:hover {
+            color: #fff;
+            background: var(--accent);
             border-color: var(--accent);
         }
 
         .btn {
-            background: var(--accent);
+            background: var(--accent-gradient);
             color: #000;
-            font-weight: 600;
-            padding: 12px 24px;
-            border-radius: 8px;
+            font-weight: 700;
+            padding: 14px 24px;
+            border-radius: 12px;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             border: none;
             cursor: pointer;
-            transition: 0.2s;
-            text-align: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 20px var(--accent-glow);
         }
 
         .btn:hover {
-            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(16, 185, 129, 0.4);
         }
 
         .btn-outline {
-            background: transparent;
+            background: rgba(255, 255, 255, 0.05);
             color: var(--text-main);
-            border: 1px solid var(--border);
+            border: 1px solid var(--card-border);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: none;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.25);
+        }
+
+        .btn-gold:hover {
+            box-shadow: 0 6px 25px rgba(245, 158, 11, 0.4);
         }
 
         .hero {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 24px;
+            margin-bottom: 30px;
             display: flex;
             flex-direction: column;
             gap: 20px;
-            margin-bottom: 40px;
         }
 
         .hero-img {
             width: 100%;
-            border-radius: 16px;
+            border-radius: 18px;
             object-fit: cover;
-            border: 1px solid var(--border);
+            max-height: 380px;
+            border: 1px solid var(--card-border);
         }
 
         .hero-text h1 {
-            font-size: 28px;
+            font-size: 30px;
+            font-weight: 800;
             margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
 
         .hero-text p {
             color: var(--text-sub);
             margin-bottom: 20px;
-            line-height: 1.5;
+            line-height: 1.6;
+            font-size: 15px;
         }
 
         .btn-group {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-group .btn {
+            flex: 1;
+            min-width: 140px;
         }
 
         .section-title {
             font-size: 20px;
-            margin-bottom: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .grid {
             display: grid;
-            gap: 15px;
-            margin-bottom: 40px;
+            gap: 14px;
+            margin-bottom: 30px;
         }
 
         .card {
             background: var(--card-bg);
-            border: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 18px;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(16, 185, 129, 0.3);
+            transform: translateY(-2px);
         }
 
         .card h3 {
             margin-bottom: 8px;
-            font-size: 16px;
+            font-size: 17px;
+            font-weight: 700;
         }
 
         .card p {
             color: var(--text-sub);
             font-size: 14px;
-            line-height: 1.4;
+            line-height: 1.5;
+        }
+
+        .donate-section {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(16, 185, 129, 0.05));
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            padding: 24px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .donate-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 480px) {
+            .donate-grid { grid-template-columns: 1fr; }
         }
 
         .ai-badge {
-            background: linear-gradient(135deg, #1f2937, #111827);
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.9));
             border: 1px solid var(--accent);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 40px;
+            padding: 22px;
+            border-radius: 20px;
+            margin-bottom: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
 
         /* MODAL */
         .modal-backdrop {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
             display: none;
             z-index: 100;
         }
@@ -167,14 +259,15 @@
             position: fixed;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
+            background: #12151e;
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
             padding: 24px;
             width: 90%;
             max-width: 450px;
             display: none;
             z-index: 101;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         .modal.active { display: block; }
@@ -196,23 +289,29 @@
 
         .tabs {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 20px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 10px;
+            background: rgba(255,255,255,0.05);
+            padding: 4px;
+            border-radius: 10px;
         }
 
         .tab-btn {
+            flex: 1;
             background: none;
             border: none;
             color: var(--text-sub);
             cursor: pointer;
-            padding: 5px 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
         }
 
         .tab-btn.active {
-            color: var(--accent);
-            border-bottom: 2px solid var(--accent);
+            color: #fff;
+            background: var(--accent);
         }
 
         .tab-content { display: none; }
@@ -220,40 +319,42 @@
 
         .qr-image {
             width: 100%;
-            max-width: 200px;
+            max-width: 180px;
             display: block;
             margin: 0 auto 15px;
-            border-radius: 8px;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
         }
 
         .crypto-address {
-            background: var(--bg-color);
-            padding: 10px;
-            border-radius: 8px;
+            background: rgba(0,0,0,0.4);
+            padding: 12px;
+            border-radius: 10px;
             font-family: monospace;
             font-size: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            word-break: break-all;
+            border: 1px solid var(--card-border);
         }
 
         .btn-copy {
-            background: var(--border);
+            background: rgba(255,255,255,0.1);
             color: #fff;
             border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
+            padding: 6px 12px;
+            border-radius: 6px;
             cursor: pointer;
             margin-left: 10px;
             white-space: nowrap;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
     <div class="container">
     <header>
-        <div style="font-weight: 700; font-size: 18px;">TARZAN</div>
+        <div class="logo">TARZAN</div>
         <div class="lang-switch">
             <button class="active" onclick="setLang('ru', event)">RU</button>
             <button onclick="setLang('en', event)">EN</button>
@@ -263,36 +364,51 @@
     </header>
 
     <section class="hero">
+        <img src="13050.jpg" alt="Tarzan Portrait" class="hero-img">
         <div class="hero-text">
             <h1>TARZAN LIFESTYLE</h1>
             <p id="hero-desc">Модель • Инфлюенсер • Фитнес-Тренер • Гид по ЮВА • Дейтинг-Консультант</p>
             <div class="btn-group">
                 <a href="#title-contact" class="btn" id="btn-contact">Заказать услугу</a>
-                <button class="btn btn-outline" onclick="openModal()" id="btn-donate-hero">❤️ Поддержать</button>
+                <button class="btn btn-gold" onclick="openModal()" id="btn-donate-hero">❤️ Поддержать</button>
             </div>
         </div>
-        <div class="hero-img-wrapper">
-            <img src="13050.jpg" alt="Tarzan Portrait" class="hero-img">
+    </section>
+
+    <!-- DONATION & SUPPORT SECTION -->
+    <section class="donate-section">
+        <h2 class="section-title" id="title-donate">❤️ Поддержка и Донаты</h2>
+        <p style="color: var(--text-sub); font-size: 14px; margin-bottom: 15px;" id="donate-desc">
+            Если вам нравится мой контент и гайды по ЮВА, вы можете поддержать проект удобным способом:
+        </p>
+        <div class="donate-grid">
+            <!-- DaLink / DonationAlerts Direct Link -->
+            <a href="https://dalink.to/tarzan" target="_blank" class="btn btn-gold" style="width: 100%;">
+                ⚡ DaLink / Карты
+            </a>
+            <button class="btn btn-outline" onclick="openModal()" style="width: 100%;">
+                💎 Криптовалюта / USDT
+            </button>
         </div>
     </section>
 
     <section>
-        <h2 class="section-title" id="title-services">Услуги</h2>
+        <h2 class="section-title" id="title-services">✨ Услуги</h2>
         <div class="grid">
             <div class="card">
-                <h3 id="s1-title">Моделинг и Съемки</h3>
+                <h3 id="s1-title">📸 Моделинг и Съемки</h3>
                 <p id="s1-desc">Участие в модных показах, рекламных кампаниях, съемках брендов одежды и контента по всей ЮВА.</p>
             </div>
             <div class="card">
-                <h3 id="s2-title">Фитнес & Персональный Тренинг</h3>
+                <h3 id="s2-title">💪 Фитнес & Персональный Тренинг</h3>
                 <p id="s2-desc">Индивидуальные программы тренировок, коррекция формы, онлайн-ведение и мотивация.</p>
             </div>
             <div class="card">
-                <h3 id="s3-title">Авторский Гид по ЮВА</h3>
+                <h3 id="s3-title">🗺️ Авторский Гид по ЮВА</h3>
                 <p id="s3-desc">Эксклюзивные нетуристические маршруты, сопровождение и локальные секреты лучших мест региона.</p>
             </div>
             <div class="card">
-                <h3 id="s4-title">Дейтинг-Консультант</h3>
+                <h3 id="s4-title">🔥 Дейтинг-Консультант</h3>
                 <p id="s4-desc">Оптимизация профиля, подбор стиля и помощь в поиске пары.</p>
             </div>
         </div>
@@ -307,7 +423,7 @@
     </div>
 
     <section class="card" style="text-align: center; margin-bottom: 40px;">
-        <h2 id="title-contact">Связь и Соцсети</h2>
+        <h2 id="title-contact" style="margin-bottom: 10px;">📩 Связь и Соцсети</h2>
         <p id="contact-text" style="color: var(--text-sub); margin-bottom: 20px;">Напишите мне напрямую для сотрудничества:</p>
         <div class="btn-group" style="justify-content: center;">
             <a href="https://t.me/imzaitsau" class="btn" target="_blank">Telegram</a>
@@ -326,7 +442,7 @@
 
     <div class="tabs">
         <button class="tab-btn active" onclick="switchTab('crypto')">Криптовалюта</button>
-        <button class="tab-btn" onclick="switchTab('bank')">Карта / Банк</button>
+        <button class="tab-btn" onclick="switchTab('bank')">DaLink / Банк</button>
     </div>
 
     <div class="tab-content active" id="tab-crypto">
@@ -342,10 +458,13 @@
 
     <div class="tab-content" id="tab-bank">
         <p style="color: var(--text-sub); font-size: 14px; margin-bottom: 15px;">
-            Для переводов по банковской карте или реквизитам напишите мне лично:
+            Быстрый перевод картой или через сервис DaLink:
         </p>
-        <a href="https://t.me/imzaitsau" class="btn" target="_blank" style="width: 100%; text-align: center;">
-            Связаться в Telegram
+        <a href="https://dalink.to/tarzan" class="btn btn-gold" target="_blank" style="width: 100%; text-align: center; margin-bottom: 10px;">
+            Перейти в DaLink
+        </a>
+        <a href="https://t.me/imzaitsau" class="btn btn-outline" target="_blank" style="width: 100%; text-align: center;">
+            Написать в Telegram
         </a>
     </div>
 </div>
@@ -407,16 +526,18 @@
             heroDesc: "Модель • Инфлюенсер • Фитнес-Тренер • Гид по ЮВА • Дейтинг-Консультант",
             btnContact: "Заказать услугу",
             btnDonateHero: "❤️ Поддержать",
-            titleServices: "Услуги",
-            s1Title: "Моделинг и Съемки",
+            titleDonate: "❤️ Поддержка и Донаты",
+            donateDesc: "Если вам нравится мой контент и гайды по ЮВА, вы можете поддержать проект удобным способом:",
+            titleServices: "✨ Услуги",
+            s1Title: "📸 Моделинг и Съемки",
             s1Desc: "Участие в модных показах, рекламных кампаниях, съемках брендов одежды и контента по всей ЮВА.",
-            s2Title: "Фитнес & Персональный Тренинг",
+            s2Title: "💪 Фитнес & Персональный Тренинг",
             s2Desc: "Индивидуальные программы тренировок, коррекция формы, онлайн-ведение и мотивация.",
-            s3Title: "Авторский Гид по ЮВА",
+            s3Title: "🗺️ Авторский Гид по ЮВА",
             s3Desc: "Эксклюзивные нетуристические маршруты, сопровождение и локальные секреты лучших мест региона.",
-            s4Title: "Дейтинг-Консультант",
+            s4Title: "🔥 Дейтинг-Консультант",
             s4Desc: "Оптимизация профиля, подбор стиля и помощь в поиске пары.",
-            titleContact: "Связь и Соцсети",
+            titleContact: "📩 Связь и Соцсети",
             contactText: "Напишите мне напрямую для сотрудничества:",
             mTitle: "Поддержать проект",
             aiTitle: "Хочешь такой же сайт с ИИ?",
@@ -427,16 +548,18 @@
             heroDesc: "Model • Influencer • Fitness Trainer • SEA Guide • Dating Consultant",
             btnContact: "Book Service",
             btnDonateHero: "❤️ Support",
-            titleServices: "Services",
-            s1Title: "Modeling & Shoots",
+            titleDonate: "❤️ Donations & Support",
+            donateDesc: "If you enjoy my content and guides, you can support the project here:",
+            titleServices: "✨ Services",
+            s1Title: "📸 Modeling & Shoots",
             s1Desc: "Fashion shows, brand campaigns, and content creation across SEA.",
-            s2Title: "Fitness & Personal Training",
+            s2Title: "💪 Fitness & Personal Training",
             s2Desc: "Custom workout plans, body sculpting, and online coaching.",
-            s3Title: "SEA Travel Guide",
+            s3Title: "🗺️ SEA Travel Guide",
             s3Desc: "Exclusive non-touristy routes, local guidance, and hidden gems of Southeast Asia.",
-            s4Title: "Dating Consultant",
+            s4Title: "🔥 Dating Consultant",
             s4Desc: "Profile optimization, style tips, and confidence coaching for dating.",
-            titleContact: "Contact & Socials",
+            titleContact: "📩 Contact & Socials",
             contactText: "Get in touch directly for collaborations:",
             mTitle: "Support the Project",
             aiTitle: "Want an AI site like this?",
@@ -447,16 +570,18 @@
             heroDesc: "Người mẫu • Influencer • HLV Thể hình • Hướng dẫn viên • Tư vấn Dating",
             btnContact: "Đặt dịch vụ",
             btnDonateHero: "❤️ Ủng hộ",
-            titleServices: "Dịch vụ",
-            s1Title: "Người mẫu & Quay chụp",
+            titleDonate: "❤️ Ủng hộ dự án",
+            donateDesc: "Nếu bạn yêu thích nội dung của tôi, bạn có thể ủng hộ tại đây:",
+            titleServices: "✨ Dịch vụ",
+            s1Title: "📸 Người mẫu & Quay chụp",
             s1Desc: "Tham gia trình diễn thời trang, quảng cáo thương hiệu khắp Đông Nam Á.",
-            s2Title: "HLV Thể hình Cá nhân",
+            s2Title: "💪 HLV Thể hình Cá nhân",
             s2Desc: "Chương trình tập luyện riêng, độ vóc dáng, đồng hành online.",
-            s3Title: "Hướng dẫn viên Du lịch SEA",
+            s3Title: "🗺️ Hướng dẫn viên Du lịch SEA",
             s3Desc: "Lịch trình độc quyền, khám phá những địa điểm bí mật tuyệt đẹp.",
-            s4Title: "Tư vấn Hẹn hò",
+            s4Title: "🔥 Tư vấn Hẹn hò",
             s4Desc: "Tối ưu hồ sơ hẹn hò, định hình phong cách.",
-            titleContact: "Liên hệ & Mạng xã hội",
+            titleContact: "📩 Liên hệ & Mạng xã hội",
             contactText: "Liên hệ trực tiếp để hợp tác:",
             mTitle: "Ủng hộ dự án",
             aiTitle: "Muốn có trang web như thế này?",
@@ -467,16 +592,18 @@
             heroDesc: "模特 • 网红 • 健身教练 • 东南亚向导 • 约会顾问",
             btnContact: "预约服务",
             btnDonateHero: "❤️ 赞助支持",
-            titleServices: "服务项目",
-            s1Title: "模特与拍摄",
+            titleDonate: "❤️ 赞助与支持",
+            donateDesc: "如果您喜欢我的内容，可以通过以下方式支持我：",
+            titleServices: "✨ 服务项目",
+            s1Title: "📸 模特与拍摄",
             s1Desc: "时装秀、品牌广告、服装拍摄（越南、曼谷、巴厘岛）。",
-            s2Title: "健身与私人训练",
+            s2Title: "💪 健身与私人训练",
             s2Desc: "定制健身计划、体型塑造、线上指导。",
-            s3Title: "东南亚定制导游",
+            s3Title: "🗺️ 东南亚定制导游",
             s3Desc: "独家小众路线、小众景点深度游。",
-            s4Title: "约会形象顾问",
+            s4Title: "🔥 约会形象顾问",
             s4Desc: "个人形象优化、约会技巧指导。",
-            titleContact: "联系方式与社交媒体",
+            titleContact: "📩 联系方式与社交媒体",
             contactText: "直接联系洽谈合作：",
             mTitle: "支持本项目",
             aiTitle: "想要类似的AI网站？",
@@ -493,6 +620,8 @@
         document.getElementById('hero-desc').innerText = t.heroDesc;
         document.getElementById('btn-contact').innerText = t.btnContact;
         document.getElementById('btn-donate-hero').innerText = t.btnDonateHero;
+        document.getElementById('title-donate').innerText = t.titleDonate;
+        document.getElementById('donate-desc').innerText = t.donateDesc;
         document.getElementById('title-services').innerText = t.titleServices;
         document.getElementById('s1-title').innerText = t.s1Title;
         document.getElementById('s1-desc').innerText = t.s1Desc;
